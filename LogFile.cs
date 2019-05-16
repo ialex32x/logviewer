@@ -24,8 +24,8 @@ namespace logviewer
         }
 
         private byte[] _buf;
-        private string _name;
-        private string _filename; // 日志文件名
+        private readonly string _name;
+        private readonly string _filename; // 日志文件名
         private System.IO.BufferedStream _fs;
         private List<LogEntryCursor> _cursors = new List<LogEntryCursor>();
         private List<LogEntry> _entries = new List<LogEntry>();
