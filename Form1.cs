@@ -44,6 +44,7 @@ namespace logviewer
             {
                 if (!string.IsNullOrEmpty(appSettings.LastOpenFolderPath))
                 {
+                    LogManager.GetInstance().AddFolder("log");
                     LogManager.GetInstance().AddFolder(appSettings.LastOpenFolderPath);
                     SyncTreeView();
                 }

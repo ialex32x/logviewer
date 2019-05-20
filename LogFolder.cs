@@ -37,7 +37,10 @@ namespace logviewer
             var files = System.IO.Directory.GetFiles(fp);
             foreach (var file in files)
             {
-                _files.Add(new LogFile(file));
+                if (file.EndsWith(".log"))
+                {
+                    _files.Add(new LogFile(file));
+                }
             }
         }
     }

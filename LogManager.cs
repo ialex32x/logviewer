@@ -19,14 +19,18 @@ namespace logviewer
 
         public LogFolder AddFolder(string path)
         {
-            var fp = System.IO.Path.GetFullPath(path);
-            LogFolder logFolder;
-            if (!folders.TryGetValue(fp, out logFolder))
+            if (System.IO.Directory.Exists(path))
             {
-                logFolder = new LogFolder(fp);
-                folders[fp] = logFolder;
+                var fp = System.IO.Path.GetFullPath(path);
+                LogFolder logFolder;
+                if (!folders.TryGetValue(fp, out logFolder))
+                {
+                    logFolder = new LogFolder(fp);
+                    folders[fp] = logFolder;
+                }
+                return logFolder;
             }
-            return logFolder;
+            return null;
         }
     }
 }
